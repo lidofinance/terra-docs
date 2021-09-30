@@ -43,14 +43,14 @@ pub struct InstantiateMsg {
 }
 ```
 
-```javascript
+```json
 {
   "epoch_period": 1000000, 
   "underlying_coin_denom": "uluna", 
   "unbonding_period": 7000000, 
   "peg_recovery_fee": "0.001", 
   "er_threshold": "1.0", 
-  "reward_denom": "uusd",
+  "reward_denom": "uusd"
 }
 ```
 
@@ -63,7 +63,7 @@ pub struct InstantiateMsg {
 | `er_threshold` | Decimal | Minimum bLuna exchange rate before the peg recovery fee is applied |
 | `reward_denom` | String | Native token denomination for distributed bLuna rewards |
 
-## HandleMsg
+## ExecuteMsg
 
 ### `Receive`
 
@@ -72,7 +72,7 @@ Can be called during a Cw20 token transfer when the Hub contract is the recipien
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
-pub enum HandleMsg {
+pub enum ExecuteMsg {
     Receive {
         amount: Uint128, 
         sender: HumanAddr, 
@@ -81,7 +81,7 @@ pub enum HandleMsg {
 }
 ```
 
-```javascript
+```json
 {
   "receive": {
     "amount": "10000000",
@@ -106,14 +106,32 @@ Bonds luna by delegating the luna amount equally between validators from the reg
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
-pub enum HandleMsg {
+pub enum ExecuteMsg {
     Bond {}
 }
 ```
 
-```javascript
+```json
 {
   "bond": {}
+}
+```
+
+### `BondForStLuna`
+
+Bonds luna by delegating the luna amount equally between validators from the registry and mints stLuna tokens to the message sender. Requires native Luna tokens to be sent to `Hub`.
+
+```rust
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[serde(rename_all = "snake_case")]
+pub enum ExecuteMsg {
+    BondForStLuna {}
+}
+```
+
+```json
+{
+  "bond_for_stluna": {}
 }
 ```
 
@@ -126,14 +144,14 @@ Tokens airdropped to Luna stakers \(i.e. Hub contract\) can be claimed by provid
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
-pub enum HandleMsg {
+pub enum ExecuteMsg {
     UpdateGlobalIndex {
         airdrop_hooks: Option<Vec<Binary>>, 
     }
 }
 ```
 
-```javascript
+```json
 {
   "update_global_index": {
     "airdrop_hooks": [
@@ -157,12 +175,12 @@ Withdraws unbonded Luna. Requires an unbonding entry to have been made prior to 
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
-pub enum HandleMsg { 
+pub enum ExecuteMsg { 
     WithdrawUnbonded {}
 }
 ```
 
-```javascript
+```json
 {
   "withdraw_unbonded": {}
 }
@@ -179,13 +197,13 @@ Checks whether a slashing event occurred and updates state accordingly.
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
-pub enum HandleMsg {
+pub enum ExecuteMsg {
     CheckSlashing {}
 }
 ```
 
 
-```javascript
+```json
 {
   "check_slashing": {}
 }
@@ -202,7 +220,7 @@ Updates parameter values of the Hub contract. Can only be issued by the creator.
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
-pub enum HandleMsg {
+pub enum ExecuteMsg {
     UpdateParams {
         epoch_period: Option<u64>, 
         unbonding_period: Option<u64>, 
@@ -212,7 +230,7 @@ pub enum HandleMsg {
 }
 ```
 
-```javascript
+```json
 {
   "update_params": {
     "epoch_period": 260000, 
@@ -239,7 +257,7 @@ Updates the `Hub` contract configuration. Can only be issued by the creator.
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
-pub enum HandleMsg {
+pub enum ExecuteMsg {
     UpdateConfig {
         owner: Option<String>,
         rewards_dispatcher_contract: Option<String>,
@@ -251,7 +269,7 @@ pub enum HandleMsg {
 }
 ```
 
-```javascript
+```json
 {
   "update_config": {
     "owner": "terra1...", 
@@ -284,7 +302,7 @@ Claims tokens airdropped to `Hub`'s Luna delegations and swaps them to UST throu
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
-pub enum HandleMsg {
+pub enum ExecuteMsg {
     ClaimAirdrop {
         airdrop_token_contract: HumanAddr, 
         airdrop_contract: HumanAddr, 
@@ -295,7 +313,7 @@ pub enum HandleMsg {
 }
 ```
 
-```javascript
+```json
 {
   "claim_airdrop": {
     "airdrop_token_contract": "terra1...", 
@@ -323,7 +341,7 @@ Swaps claimed airdrop tokens to the reward denomination. Can only be issued by i
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
-pub enum HandleMsg {
+pub enum ExecuteMsg {
     SwapHook {
         airdrop_token_contract: HumanAddr, 
         airdrop_swap_contract: HumanAddr, 
@@ -332,7 +350,7 @@ pub enum HandleMsg {
 }
 ```
 
-```javascript
+```json
 {
   "swap_hook": {
     "airdrop_token_contract": "terra1...", 
@@ -348,6 +366,62 @@ pub enum HandleMsg {
 | `airdrop_swap_contract` | HumanAddr | Contract address of swap contract to convert airdrop token to Terra USD \(e.g. Terraswap Pair\) |
 | `swap_msg` | Binary | Base64-encoded string of JSON of swap contract's swap message \(swaps airdrop token to Terra USD\) |
 
+### `[Internal] RedelegateProxy`
+
+A proxy handler to execute redelegations from Hub address.
+
+Can only be executed by [Validators Registry](validators_registry) or by the owner of the Hub.
+
+```rust
+pub enum ExecuteMsg {
+    RedelegateProxy {
+        src_validator: String,
+        redelegations: Vec<(String, Coin)>
+    }
+}
+```
+
+```json
+{
+  "redelegate_proxy": {
+    "src_validator": "terravaloper1...",
+    "redelegations": [
+      ["terravaloper1...", "100uluna"],
+      ["terravaloper1...", "50uluna"]
+    ]
+  }
+}
+```
+
+| Key | Type | Description |
+| :--- | :--- | :--- |
+| `src_validator` | HumanAddr | Address of source validator in redelegation pair |
+| `redelegations` | Vec&lt;\(String, Coin\)&gt; | List of \(destination validator, redelegation amount\) |
+
+### `[Internal] BondRewards`
+
+Bonds luna by delegating the luna amount equally between validators from the registry.
+
+Neither bLuna nor stLuna are minted.
+
+Can only be executed by [Rewards Dispatcher](rewards_dispatcher).
+
+Requires native Luna tokens to be sent to `Hub`.
+
+```rust
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[serde(rename_all = "snake_case")]
+pub enum ExecuteMsg {
+    BondRewards {}
+}
+```
+
+```json
+{
+  "bond_rewards": {}
+}
+```
+
 ## Receive Hooks
 
 ### `Unbond`
@@ -362,7 +436,7 @@ pub enum Cw20HookMsg {
 }
 ```
 
-```javascript
+```json
 {
   "unbond": {}
 }
@@ -380,7 +454,7 @@ pub enum Cw20HookMsg {
 }
 ```
 
-```javascript
+```json
 {
   "convert": {}
 }
@@ -404,7 +478,7 @@ pub enum QueryMsg {
 }
 ```
 
-```javascript
+```json
 {
   "config": {}
 }
@@ -428,7 +502,7 @@ pub struct ConfigResponse {
 }
 ```
 
-```javascript
+```json
 {
     "owner": "terra1...", 
     "reward_contract": "terra1...", 
@@ -462,7 +536,7 @@ pub enum QueryMsg {
 }
 ```
 
-```javascript
+```json
 {
   "state": {}
 }
@@ -488,7 +562,7 @@ pub struct StateResponse {
 }
 ```
 
-```javascript
+```json
 {
   "bluna_exchange_rate": "0.99", 
   "stluna_exchange_rate": "1.99",
@@ -526,7 +600,7 @@ pub enum QueryMsg {
 }
 ```
 
-```javascript
+```json
 {
   "current_batch": {}
 }
@@ -547,7 +621,7 @@ pub struct CurrentBatchResponse {
 }
 ```
 
-```javascript
+```json
 {
   "id": 10, 
   "requested_bluna_with_fee": "100000000",
@@ -575,10 +649,10 @@ pub enum QueryMsg {
 }
 ```
 
-```javascript
+```json
 {
   "withdrawable_unbonded": {
-    "address": "terra1...",
+    "address": "terra1..."
   }
 }
 ```
@@ -596,7 +670,7 @@ pub struct WithdrawablUnbondedResponse {
 }
 ```
 
-```javascript
+```json
 {
   "withdrawable": "100000000" 
 }
@@ -618,7 +692,7 @@ pub enum QueryMsg {
 }
 ```
 
-```javascript
+```json
 {
   "parameters": {}
 }
@@ -642,7 +716,7 @@ pub struct Parameters {
 }
 ```
 
-```javascript
+```json
 {
   "epoch_period": 260000, 
   "underlying_coin_denom": "uluna", 
@@ -676,7 +750,7 @@ pub enum QueryMsg {
 }
 ```
 
-```javascript
+```json
 {
   "unbond_requests": {
     "address": "terra1..." 
@@ -700,7 +774,7 @@ pub struct UnbondRequestsResponse {
 pub type UnbondRequest = Vec<(u64, Uint128, Uint128)>;
 ```
 
-```javascript
+```json
 {
   "address": "terra1...", 
   "requests": [
@@ -735,7 +809,7 @@ pub enum QueryMsg {
 }
 ```
 
-```javascript
+```json
 {
   "all_history": {
     "start_from": 10, 
@@ -774,7 +848,7 @@ pub struct UnbondHistory {
 }
 ```
 
-```javascript
+```json
 {
   "history": [
     {

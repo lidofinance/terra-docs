@@ -8,12 +8,10 @@ The Reward contract also stores the balance and reward index values for all bLun
 
 | Key | Type | Description |
 | :--- | :--- | :--- |
-| `hub_contract` | CanonicalAddr | Contract address of [bLuna Hub](hub.md) |
+| `hub_contract` | CanonicalAddr | Contract address of [Hub](hub.md) |
 | `reward_denom` | String | Native token denomination for distributed bLuna rewards |
 
 ## InitMsg
-
-
 
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
@@ -23,51 +21,41 @@ pub struct InitMsg {
 }
 ```
 
-
-
-```javascript
+```json
 {
   "hub_contract": "terra1...", 
   "reward_denom": "uusd" 
 }
 ```
 
-
-
 | Key | Type | Description |
 | :--- | :--- | :--- |
 | `hub_contract` | HumanAddr | Contract address of bLuna Hub |
 | `reward_denom` | String | Native token denomination for distributed bLuna rewards |
 
-## HandleMsg
+## ExecuteMsg
 
 ### `ClaimRewards`
 
 Claims bLuna holder's accrued rewards to the specified address. Sends rewards to message sender if the `recipient` is not specified.
 
-
-
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
-pub enum HandleMsg {
+pub enum ExecuteMsg {
     ClaimRewards {
         recipient: Option<HumanAddr>, 
     }
 }
 ```
 
-
-
-```javascript
+```json
 {
   "claim_rewards": {
     "recipient": "terra1..." 
   }
 }
 ```
-
-
 
 | Key | Type | Description |
 | :--- | :--- | :--- |
@@ -77,27 +65,21 @@ pub enum HandleMsg {
 
 ### `[Internal] SwapToRewardDenom`
 
-Swaps all withdrawn delegation rewards to `reward_denom`. Can only be issued by `Hub`.
-
-
+Swaps all withdrawn delegation rewards to `reward_denom`. Can only be issued by `Hub`
 
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
-pub enum HandleMsg {
+pub enum ExecuteMsg {
     SwapToRewardDenom {}
 }
 ```
 
-
-
-```javascript
+```json
 {
   "swap_to_reward_denom": {}
 }
 ```
-
-
 
 | Key | Type | Description |
 | :--- | :--- | :--- |
@@ -107,25 +89,19 @@ pub enum HandleMsg {
 
 Updates the global reward index based on the newly withdrawn rewards. Can only be issued by `Hub`.
 
-
-
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
-pub enum HandleMsg {
+pub enum ExecuteMsg {
     UpdateGlobalIndex {}
 }
 ```
 
-
-
-```javascript
+```json
 {
   "update_global_index": {}
 }
 ```
-
-
 
 | Key | Type | Description |
 | :--- | :--- | :--- |
@@ -135,12 +111,10 @@ pub enum HandleMsg {
 
 Increases stored user's bLuna balance. Stores user's accrued rewards to pending rewards and updates user's reward index to the current global reward index . Can only be issued by `Token`.
 
-
-
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
-pub enum HandleMsg {
+pub enum ExecuteMsg {
     IncreaseBalance {
         address: HumanAddr, 
         amount: Uint128,  
@@ -148,9 +122,7 @@ pub enum HandleMsg {
 }
 ```
 
-
-
-```javascript
+```json
 {
   "increase_balance": {
     "address": "terra1...", 
@@ -158,8 +130,6 @@ pub enum HandleMsg {
   }
 }
 ```
-
-
 
 | Key | Type | Description |
 | :--- | :--- | :--- |
@@ -170,12 +140,10 @@ pub enum HandleMsg {
 
 Decreases stored user's bLuna balance. Stores user's accrued rewards to pending rewards and updates user's reward index to the current global reward index. Can only be issued by`Token`.
 
-
-
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
-pub enum HandleMsg {
+pub enum ExecuteMsg {
     DecreaseBalance {
         address: HumanAddr, 
         amount: Uint128, 
@@ -183,9 +151,7 @@ pub enum HandleMsg {
 }
 ```
 
-
-
-```javascript
+```json
 {
   "decrease_balance": {
     "address": "terra1...", 
@@ -193,8 +159,6 @@ pub enum HandleMsg {
   }
 }
 ```
-
-
 
 | Key | Type | Description |
 | :--- | :--- | :--- |
@@ -207,8 +171,6 @@ pub enum HandleMsg {
 
 Gets the contract configuration of bLuna `Reward`.
 
-
-
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
@@ -217,23 +179,17 @@ pub enum QueryMsg {
 }
 ```
 
-
-
-```javascript
+```json
 {
   "config": {}
 }
 ```
-
-
 
 | Key | Type | Description |
 | :--- | :--- | :--- |
 |  |  |  |
 
 ### `ConfigResponse`
-
-
 
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
@@ -243,27 +199,21 @@ pub struct ConfigResponse {
 }
 ```
 
-
-
-```javascript
+```json
 {
   "hub_contract": "terra1...", 
   "reward_denom": "uusd" 
 }
 ```
 
-
-
 | Key | Type | Description |
 | :--- | :--- | :--- |
-| `hub_contract` | HumanAddr | Contract address of [bLuna Hub](hub.md) |
+| `hub_contract` | HumanAddr | Contract address of [Hub](hub.md) |
 | `reward_denom` | String | Native token denomination for distributed bLuna rewards |
 
 ### `State`
 
 Gets information about the contract's current state.
-
-
 
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
@@ -273,23 +223,17 @@ pub enum QueryMsg {
 }
 ```
 
-
-
-```javascript
+```json
 {
   "state": {}
 }
 ```
-
-
 
 | Key | Type | Description |
 | :--- | :--- | :--- |
 |  |  |  |
 
 ### `StateResponse`
-
-
 
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
@@ -300,17 +244,13 @@ pub struct StateResponse {
 }
 ```
 
-
-
-```javascript
+```json
 {
   "global_index": "1000.0", 
   "total_balance": "100000000", 
   "prev_reward_balance": "100000000" 
 }
 ```
-
-
 
 | Key | Type | Description |
 | :--- | :--- | :--- |
@@ -322,8 +262,6 @@ pub struct StateResponse {
 
 Gets the amount of rewards accrued to the specified bLuna holder.
 
-
-
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
@@ -334,9 +272,7 @@ pub enum QueryMsg {
 }
 ```
 
-
-
-```javascript
+```json
 {
   "accrued_rewards": {
     "address": "terra1..." 
@@ -344,15 +280,11 @@ pub enum QueryMsg {
 }
 ```
 
-
-
 | Key | Type | Description |
 | :--- | :--- | :--- |
 | `address` | HumanAddr | Address of bLuna holder |
 
 ### `AccruedRewardsResponse`
-
-
 
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
@@ -361,15 +293,11 @@ pub struct AccruedRewardsResponse {
 }
 ```
 
-
-
-```javascript
+```json
 {
   "rewards": "100000000" 
 }
 ```
-
-
 
 | Key | Type | Description |
 | :--- | :--- | :--- |
@@ -378,8 +306,6 @@ pub struct AccruedRewardsResponse {
 ### `Holder`
 
 Gets information about the specified bLuna holder.
-
-
 
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
@@ -391,9 +317,7 @@ pub enum QueryMsg {
 }
 ```
 
-
-
-```javascript
+```json
 {
   "holder": {
     "address": "terra1..." 
@@ -401,15 +325,11 @@ pub enum QueryMsg {
 }
 ```
 
-
-
 | Key | Type | Description |
 | :--- | :--- | :--- |
 | `address` | HumanAddr | Address of bLuna holder |
 
 ### `HolderResponse`
-
-
 
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
@@ -421,9 +341,7 @@ pub struct HolderResponse {
 }
 ```
 
-
-
-```javascript
+```json
 {
   "address": "terra1...", 
   "balance": "100000000", 
@@ -431,8 +349,6 @@ pub struct HolderResponse {
   "pending_rewards": "1000000.123" 
 }
 ```
-
-
 
 | Key | Type | Description |
 | :--- | :--- | :--- |
@@ -445,8 +361,6 @@ pub struct HolderResponse {
 
 Gets information about all bLuna holders.
 
-
-
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
@@ -458,9 +372,7 @@ pub enum QueryMsg {
 }
 ```
 
-
-
-```javascript
+```json
 {
   "holders": {
     "start_after": "terra1...", 
@@ -468,8 +380,6 @@ pub enum QueryMsg {
   }
 }
 ```
-
-
 
 | Key | Type | Description |
 | :--- | :--- | :--- |
@@ -479,8 +389,6 @@ pub enum QueryMsg {
 \* = optional
 
 ### `HoldersResponse`
-
-
 
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
@@ -498,7 +406,7 @@ pub struct HolderResponse {
 
 
 
-```javascript
+```json
 {
   "holders": [
     {
@@ -516,8 +424,6 @@ pub struct HolderResponse {
   ]
 }
 ```
-
-
 
 | Key | Type | Description |
 | :--- | :--- | :--- |

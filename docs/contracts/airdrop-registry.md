@@ -27,7 +27,7 @@ pub struct InitMsg {
 
 
 
-```javascript
+```json
 {
   "hub_contract": "terra1...", 
   "reward_contract": "terra1..." 
@@ -41,7 +41,7 @@ pub struct InitMsg {
 | `hub_contract` | HumanAddr | Contract address of [bLuna Hub](hub) |
 | `reward_contract` | HumanAddr | Contract address of [bLuna Reward](reward) |
 
-## HandleMsg
+## ExecuteMsg
 
 ### `UpdateConfig`
 
@@ -52,7 +52,7 @@ Updates the Airdrop Registry contract configuration. Can only be issued by contr
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
-pub enum HandleMsg {
+pub enum ExecuteMsg {
     UpdateConfig {
         owner: Option<HumanAddr>, 
         hub_contract: Option<HumanAddr>, 
@@ -63,7 +63,7 @@ pub enum HandleMsg {
 
 
 
-```javascript
+```json
 {
   "update_config": {
     "owner": "terra1...", 
@@ -92,7 +92,7 @@ Adds support for a new airdrop to Luna stakers. Can only be issued by contract o
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
-pub enum HandleMsg {
+pub enum ExecuteMsg {
     AddAirdropInfo {
         airdrop_token: String, 
         airdrop_info: AirdropInfo, 
@@ -111,7 +111,7 @@ pub struct AirdropInfo {
 
 
 
-```javascript
+```json
 {
   "add_airdrop_info": {
     "airdrop_token": "MIR", 
@@ -152,7 +152,7 @@ Updates information for an already supported airdrop token. Can only be issued b
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
-pub enum HandleMsg {
+pub enum ExecuteMsg {
     UpdateAirdropInfo {
         airdrop_token: String, 
         airdrop_info: AirdropInfo, 
@@ -171,7 +171,7 @@ pub struct AirdropInfo {
 
 
 
-```javascript
+```json
 {
   "update_airdrop_info": {
     "airdrop_token": "MIR", 
@@ -212,7 +212,7 @@ Removes support for a currently supported airdrop. Can only be issued by contrac
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
-pub enum HandleMsg {
+pub enum ExecuteMsg {
     RemoveAirdropInfo {
         airdrop_token: String, 
     }
@@ -221,7 +221,7 @@ pub enum HandleMsg {
 
 
 
-```javascript
+```json
 {
   "remove_airdrop_info": {
     "airdrop_token": "MIR" 
@@ -244,7 +244,7 @@ Fabricates a message to claim MIR airdrop. Can only be issued by [Hub](hub).
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
-pub enum HandleMsg {
+pub enum ExecuteMsg {
     FabricateMIRClaim {
         stage: u8, 
         amount: Uint128, 
@@ -255,7 +255,7 @@ pub enum HandleMsg {
 
 
 
-```javascript
+```json
 {
   "fabricate_mir_claim": {
     "stage": 5, 
@@ -287,7 +287,7 @@ pub enum HandleMsg {
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
-pub enum HandleMsg {
+pub enum ExecuteMsg {
     FabricateANCClaim {
         stage: u8, 
         amount: Uint128, 
@@ -298,7 +298,7 @@ pub enum HandleMsg {
 
 
 
-```javascript
+```json
 {
   "fabricate_anc_claim": {
     "stage": 5, 
@@ -341,7 +341,7 @@ pub enum QueryMsg {
 
 
 
-```javascript
+```json
 {
   "config": {}
 }
@@ -369,7 +369,7 @@ pub struct ConfigResponse {
 
 
 
-```javascript
+```json
 {
   "owner": "terra1...", 
   "hub_contract": "terra1...", 
@@ -409,7 +409,7 @@ pub enum QueryMsg {
 
 
 
-```javascript
+```json
 {
   "airdrop_info": {
     "airdrop_token": "MIR", 
@@ -457,7 +457,7 @@ pub struct AirdropInfo {
 
 
 
-```javascript
+```json
 {
   "airdrop_info": [
     {
