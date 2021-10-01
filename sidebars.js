@@ -12,5 +12,17 @@ module.exports = {
         'contracts/airdrop-registry',
       ],
     },
+    'fees',
+    {
+      type: 'category',
+      label: 'Internals',
+      items: [
+        'internals/exchange-rate',
+        'internals/withdrawals',
+        'internals/rewards',
+      ],
+    },
+    'security',
+    'deployed-contracts',
   ],
 };
