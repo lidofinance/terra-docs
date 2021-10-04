@@ -10,6 +10,7 @@ module.exports = {
         'contracts/rewards_dispatcher',
         'contracts/validators_registry',
         'contracts/airdrop-registry',
+        'contracts/stLuna_and_bLuna'
       ],
     },
     'fees',
