@@ -1,6 +1,6 @@
 # Airdrop Registry
 
-The Airdrop Registry contract manages the fabrication of messages relevant to claiming and swapping tokens airdropped to Luna delegators. Airdropped tokens to the [bLuna Hub](hub) contract is swapped for Terra USD and distributed as bLuna rewards.
+The Airdrop Registry contract manages the fabrication of messages relevant to claiming and swapping tokens airdropped to Luna delegators. Airdropped tokens to the [bLuna Hub](hub) contract are swapped for Terra USD and distributed as bLuna rewards.
 
 The Airdrop Registry is initially configured to support airdrops of [ANC](https://docs.anchorprotocol.com/protocol/anchor-token-anc) and [Mirror Protocol](https://mirror.finance)'s governance token, [MIR](https://docs.mirror.finance/protocol/mirror-token-mir). When a new airdrop is distributed to Luna stakers, a new Airdrop Registry contract that includes the message interface for claiming and swapping the airdrop token can be deployed and its address newly registered to the bLuna Hub contract.
 
@@ -45,9 +45,7 @@ pub struct InitMsg {
 
 ### `UpdateConfig`
 
-Updates the Airdrop Registry contract configuration. Can only be issued by contract owner.
-
-
+Updates the Airdrop Registry contract configuration. Can only be issued by the contract owner.
 
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
@@ -61,8 +59,6 @@ pub enum ExecuteMsg {
 }
 ```
 
-
-
 ```json
 {
   "update_config": {
@@ -72,8 +68,6 @@ pub enum ExecuteMsg {
   }
 }
 ```
-
-
 
 | Key | Type | Description |
 | :--- | :--- | :--- |
@@ -85,9 +79,7 @@ pub enum ExecuteMsg {
 
 ### `AddAirdropInfo`
 
-Adds support for a new airdrop to Luna stakers. Can only be issued by contract owner.
-
-
+Adds support for a new airdrop to Luna stakers. Can only be issued by the contract owner.
 
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
@@ -109,8 +101,6 @@ pub struct AirdropInfo {
 }
 ```
 
-
-
 ```json
 {
   "add_airdrop_info": {
@@ -125,8 +115,6 @@ pub struct AirdropInfo {
   }
 }
 ```
-
-
 
 | Key | Type | Description |
 | :--- | :--- | :--- |
@@ -145,9 +133,7 @@ pub struct AirdropInfo {
 
 ### `UpdateAirdropInfo`
 
-Updates information for an already supported airdrop token. Can only be issued by contract owner.
-
-
+Updates information for an already supported airdrop token. Can only be issued by the contract owner.
 
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
@@ -169,8 +155,6 @@ pub struct AirdropInfo {
 }
 ```
 
-
-
 ```json
 {
   "update_airdrop_info": {
@@ -185,8 +169,6 @@ pub struct AirdropInfo {
   }
 }
 ```
-
-
 
 | Key | Type | Description |
 | :--- | :--- | :--- |
@@ -205,9 +187,7 @@ pub struct AirdropInfo {
 
 ### `RemoveAirdropInfo`
 
-Removes support for a currently supported airdrop. Can only be issued by contract owner.
-
-
+Removes support for a currently supported airdrop. Can only be issued by the contract owner.
 
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
@@ -219,8 +199,6 @@ pub enum ExecuteMsg {
 }
 ```
 
-
-
 ```json
 {
   "remove_airdrop_info": {
@@ -229,17 +207,13 @@ pub enum ExecuteMsg {
 }
 ```
 
-
-
 | Key | Type | Description |
 | :--- | :--- | :--- |
 | `airdrop_token` | String | Ticker of airdrop token |
 
 ### `FabricateMIRClaim`
 
-Fabricates a message to claim MIR airdrop. Can only be issued by [Hub](hub).
-
-
+Fabricates a message to claim MIR airdrop. Can only be issued by the [Hub](hub).
 
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
@@ -252,8 +226,6 @@ pub enum ExecuteMsg {
     }
 }
 ```
-
-
 
 ```json
 {
@@ -272,8 +244,6 @@ pub enum ExecuteMsg {
 }
 ```
 
-
-
 | Key | Type | Description |
 | :--- | :--- | :--- |
 | `stage` | u8 | MIR airdrop stage |
@@ -281,8 +251,6 @@ pub enum ExecuteMsg {
 | `proof` | Vec&lt;String&gt; | Merkle proof to prove airdrop eligibility |
 
 ### `FabricateANCClaim`
-
-
 
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
@@ -295,8 +263,6 @@ pub enum ExecuteMsg {
     }
 }
 ```
-
-
 
 ```json
 {
@@ -315,8 +281,6 @@ pub enum ExecuteMsg {
 }
 ```
 
-
-
 | Key | Type | Description |
 | :--- | :--- | :--- |
 | `stage` | u8 | MIR airdrop stage |
@@ -329,8 +293,6 @@ pub enum ExecuteMsg {
 
 Gets the Airdrop Registry contract configuration.
 
-
-
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
@@ -339,23 +301,17 @@ pub enum QueryMsg {
 }
 ```
 
-
-
 ```json
 {
   "config": {}
 }
 ```
 
-
-
 | Key | Type | Description |
 | :--- | :--- | :--- |
 |  |  |  |
 
 ### `ConfigResponse`
-
-
 
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
@@ -366,8 +322,6 @@ pub struct ConfigResponse {
     pub airdrop_tokens: Vec<String>, 
 }
 ```
-
-
 
 ```json
 {
@@ -380,8 +334,6 @@ pub struct ConfigResponse {
 }
 ```
 
-
-
 | Key | Type | Description |
 | :--- | :--- | :--- |
 | `owner` | HumanAddr | Address of contract owner |
@@ -392,8 +344,6 @@ pub struct ConfigResponse {
 ### `AirdropInfo`
 
 Gets information for the specified airdrop token if the `airdrop_token` field is filled. Gets information for all airdrop tokens if the `airdrop_token` field is not filled.
-
-
 
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
@@ -407,8 +357,6 @@ pub enum QueryMsg {
 }
 ```
 
-
-
 ```json
 {
   "airdrop_info": {
@@ -419,8 +367,6 @@ pub enum QueryMsg {
 }
 ```
 
-
-
 | Key | Type | Description |
 | :--- | :--- | :--- |
 | `airdrop_token`\* | String | Ticker of airdrop token to query information |
@@ -430,8 +376,6 @@ pub enum QueryMsg {
 \* = optional
 
 ### `AirdropInfoResponse`
-
-
 
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
@@ -455,8 +399,6 @@ pub struct AirdropInfo {
 }
 ```
 
-
-
 ```json
 {
   "airdrop_info": [
@@ -473,8 +415,6 @@ pub struct AirdropInfo {
   ]
 }
 ```
-
-
 
 | Key | Type | Description |
 | :--- | :--- | :--- |

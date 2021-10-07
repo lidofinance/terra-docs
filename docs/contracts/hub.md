@@ -29,7 +29,7 @@ The Hub contract acts as the central hub for all minted bLuna. Native Luna token
 
 ## InitMsg
 
-Instantiates the bLuna Hub contract. Adds specified validator to whitelist and bonds the creator's initial Luna deposit. The creator's initial Luna deposit ensures the bLuna supply to always be a high enough value to prevent rounding errors in the bLuna exchange rate calculation.
+Instantiates the bLuna Hub contract. Adds a specified validator to whitelist and bonds the creator's initial Luna deposit. The creator's initial Luna deposit ensures the bLuna supply always be a high enough value to prevent rounding errors in the bLuna exchange rate calculation.
 
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
@@ -170,7 +170,7 @@ pub enum ExecuteMsg {
 
 ### `WithdrawUnbonded`
 
-Withdraws unbonded Luna. Requires an unbonding entry to have been made prior to the unbonding period.
+Withdraws unbonded Luna. Requires an unbonding entry to have been made before the unbonding period.
 
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
@@ -426,7 +426,7 @@ pub enum ExecuteMsg {
 
 ### `Unbond`
 
-Burns received stLuna or bLuna and equally unbonds a corresponding amount of Luna from validator from the registry.
+Burns received stLuna or bLuna and equally unbonds a corresponding amount of Luna from a validator from the registry.
 
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]

@@ -2,7 +2,7 @@
 
 The Reward contract contains logic for distributing Luna delegation rewards to holders of bLuna. After the Hub contract withdraws Luna delegation rewards to the Reward contract, the Hub contract can request all rewards to be swapped to TerraUSD, which is then distributed to bLuna holders. Holders of bLuna can then send a request to this contract to claim their accrued rewards.
 
-The Reward contract also stores the balance and reward index values for all bLuna holders, which is used to calculate the amount of bLuna rewards that a specific holder has accrued.
+The Reward contract also stores the balance and reward index values for all bLuna holders, which is used to calculate the number of bLuna rewards that a specific holder has accrued.
 
 ## Config
 
@@ -37,7 +37,7 @@ pub struct InitMsg {
 
 ### `ClaimRewards`
 
-Claims bLuna holder's accrued rewards to the specified address. Sends rewards to message sender if the `recipient` is not specified.
+Claims bLuna holder's accrued rewards to the specified address. Sends rewards to the message sender if the `recipient` is not specified.
 
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
@@ -65,7 +65,7 @@ pub enum ExecuteMsg {
 
 ### `[Internal] SwapToRewardDenom`
 
-Swaps all withdrawn delegation rewards to `reward_denom`. Can only be issued by `Hub`
+Swaps all withdrawn delegation rewards to `reward_denom`. Can only be issued by the `Hub`
 
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
@@ -87,7 +87,7 @@ pub enum ExecuteMsg {
 
 ### `[Internal] UpdateGlobalIndex`
 
-Updates the global reward index based on the newly withdrawn rewards. Can only be issued by `Hub`.
+Updates the global reward index based on the newly withdrawn rewards. Can only be issued by the `Hub`.
 
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
@@ -109,7 +109,7 @@ pub enum ExecuteMsg {
 
 ### ~~`[Internal] IncreaseBalance`~~
 
-Increases stored user's bLuna balance. Stores user's accrued rewards to pending rewards and updates user's reward index to the current global reward index . Can only be issued by `Token`.
+Increases stored user's bLuna balance. Stores the user's accrued rewards to pending rewards and updates user's reward index to the current global reward index. Can only be issued by the `Token`.
 
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
@@ -138,7 +138,7 @@ pub enum ExecuteMsg {
 
 ### `[Internal] DecreaseBalance`
 
-Decreases stored user's bLuna balance. Stores user's accrued rewards to pending rewards and updates user's reward index to the current global reward index. Can only be issued by`Token`.
+Decreases stored user's bLuna balance. Stores the user's accrued rewards to pending rewards and updates user's reward index to the current global reward index. Can only be issued by the `Token`.
 
 ```rust
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]

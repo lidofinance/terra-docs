@@ -1,6 +1,6 @@
 # stLuna and bLuna tokens
 
-stLuna and bLuna tokens are assets built for the Terra blockchain, their value backed by underlying Luna delegations. stLuna and bLuna tokens follows full compliance with the Cw20 standard, having the potential to be integrated into a wide variety of decentralized finance applications.
+stLuna and bLuna tokens are assets built for the Terra blockchain, their value backed by underlying Luna delegations. stLuna and bLuna tokens follow full compliance with the Cw20 standard, having the potential to be integrated into a wide variety of decentralized finance applications.
 
 ## Base
 

@@ -67,7 +67,7 @@ pub struct InstantiateMsg {
 
 ### ```UpdateConfig```
 
-Updates the dispatcher's configuration. Can only be executed by owner.
+Updates the dispatcher's configuration. Can only be executed by the owner.
 
 ```rust
 pub enum ExecuteMsg{
