@@ -81,10 +81,6 @@ pub enum ExecuteMsg {
 }
 ```
 
-| Key | Type | Description |
-| :--- | :--- | :--- |
-|  |  |  |
-
 ### `[Internal] UpdateGlobalIndex`
 
 Updates the global reward index based on the newly withdrawn rewards. Can only be issued by the `Hub`.
@@ -103,11 +99,7 @@ pub enum ExecuteMsg {
 }
 ```
 
-| Key | Type | Description |
-| :--- | :--- | :--- |
-|  |  |  |
-
-### ~~`[Internal] IncreaseBalance`~~
+### `[Internal] IncreaseBalance`
 
 Increases stored user's bLuna balance. Stores the user's accrued rewards to pending rewards and updates user's reward index to the current global reward index. Can only be issued by the `Token`.
 
@@ -185,10 +177,6 @@ pub enum QueryMsg {
 }
 ```
 
-| Key | Type | Description |
-| :--- | :--- | :--- |
-|  |  |  |
-
 ### `ConfigResponse`
 
 ```rust
@@ -228,10 +216,6 @@ pub enum QueryMsg {
   "state": {}
 }
 ```
-
-| Key | Type | Description |
-| :--- | :--- | :--- |
-|  |  |  |
 
 ### `StateResponse`
 

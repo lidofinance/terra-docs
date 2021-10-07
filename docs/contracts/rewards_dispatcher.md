@@ -152,10 +152,6 @@ pub enum ExecuteMsg {
 }
 ```
 
-| Key | Type | Description |
-| :--- | :--- | :--- |
-
-
 ## QueryMsg
 
 ### ```Config```

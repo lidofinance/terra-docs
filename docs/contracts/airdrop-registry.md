@@ -307,10 +307,6 @@ pub enum QueryMsg {
 }
 ```
 
-| Key | Type | Description |
-| :--- | :--- | :--- |
-|  |  |  |
-
 ### `ConfigResponse`
 
 ```rust

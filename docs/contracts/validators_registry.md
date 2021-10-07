@@ -161,9 +161,6 @@ pub enum QueryMsg {
 }
 ```
 
-| Key | Type | Description |
-| :--- | :--- | :--- |
-
 Returns a list of [`Validator`](validators_registry#validator):
 
 ```json
@@ -198,8 +195,5 @@ pub enum QueryMsg {
   "config": {}
 }
 ```
-
-| Key | Type | Description |
-| :--- | :--- | :--- |
 
 Returns a [`Config`](validators_registry#config) struct.

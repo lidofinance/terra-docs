@@ -186,10 +186,6 @@ pub enum ExecuteMsg {
 }
 ```
 
-| Key | Type | Description |
-| :--- | :--- | :--- |
-|  |  | ~~~~ |
-
 ### `CheckSlashing`
 
 Checks whether a slashing event occurred and updates state accordingly.
@@ -208,10 +204,6 @@ pub enum ExecuteMsg {
   "check_slashing": {}
 }
 ```
-
-| Key | Type | Description |
-| :--- | :--- | :--- |
-|  |  |  |
 
 ### `UpdateParams`
 
@@ -442,7 +434,7 @@ pub enum Cw20HookMsg {
 }
 ```
 
-### Convert
+### `Convert`
 
 Converts received stLuna to bLuna or vice versa.
 
@@ -459,10 +451,6 @@ pub enum Cw20HookMsg {
   "convert": {}
 }
 ```
-
-| Key | Type | Description |
-| :--- | :--- | :--- |
-|  |  |  |
 
 ## QueryMsg
 
@@ -483,10 +471,6 @@ pub enum QueryMsg {
   "config": {}
 }
 ```
-
-| Key | Type | Description |
-| :--- | :--- | :--- |
-|  |  |  |
 
 ### `ConfigResponse`
 
@@ -541,10 +525,6 @@ pub enum QueryMsg {
   "state": {}
 }
 ```
-
-| Key | Type | Description |
-| :--- | :--- | :--- |
-|  |  |  |
 
 ### `StateResponse`
 
@@ -605,10 +585,6 @@ pub enum QueryMsg {
   "current_batch": {}
 }
 ```
-
-| Key | Type | Description |
-| :--- | :--- | :--- |
-|  |  |  |
 
 ### `CurrentBatchResponse`
 
@@ -697,10 +673,6 @@ pub enum QueryMsg {
   "parameters": {}
 }
 ```
-
-| Key | Type | Description |
-| :--- | :--- | :--- |
-|  |  |  |
 
 ### `ParametersResponse`
 
