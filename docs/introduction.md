@@ -1,3 +1,6 @@
+---
+slug: /
+---
+
 # Introduction
 
-![Architecture of stLuna and bLuna](/img/architecture.png)
