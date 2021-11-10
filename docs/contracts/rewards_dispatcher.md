@@ -116,23 +116,23 @@ Can only be executed by the [Hub](hub).
 ```rust
 pub enum ExecuteMsg {
     SwapToRewardDenom {
-        bluna_total_mint_amount: Uint128,
-        stluna_total_mint_amount: Uint128,
+        bluna_total_bond_amount: Uint128,
+        stluna_total_bond_amount: Uint128,
     }
 }
 ```
 
 ```json
 {
-  "bluna_total_mint_amount": "100000",
-  "stluna_total_mint_amount": "2000000"
+  "bluna_total_bond_amount": "100000",
+  "stluna_total_bond_amount": "2000000"
 }
 ```
 
 | Key | Type | Description |
 | :--- | :--- | :--- |
-| `bluna_total_mint_amount` | Uint128 | Total amount of minted bLuna |
-| `stluna_total_mint_amount` | Uint128 | Total amount of minted stLuna |
+| `bluna_total_bond_amount` | Uint128 | Total amount of minted bLuna |
+| `stluna_total_bond_amount` | Uint128 | Total amount of minted stLuna |
 
 ### ```[Internal] DispatchRewards```
 

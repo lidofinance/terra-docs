@@ -14,5 +14,11 @@ The Lido Liquid Staking for Terra implementation consists of the following contr
 
 ## Rewards Processing
 
-Hub's staking rewards are claimed in various native token denominations \(TerraUSD, TerraSDR, Luna, etc.\) to the Reward Dispatcher's address. After that, the Hub sends the `SwapToRewardDenom` and `DispatchRewards` messages to the Rewards Dispatcher contract:
+Hub's staking rewards are claimed in various native token denominations \(TerraUSD, TerraSDR, Luna, etc.\) to the Reward Dispatcher's address. After that, the Hub sends the `SwapToRewardDenom` and `DispatchRewards` messages to the Rewards Dispatcher contract. The `SwapToRewardDenom` message contains two fields, `bluna_total_bond_amount` and `stluna_total_bond_amount`. The rewards are distributed between stLuna and bLuna according to the `bluna_total_bond_amount / stluna_total_bond_amount`:
 
+1. All non-Luna and non-UST rewards are swapped to UST;
+2. Depending on how the obtained Luna to UST rewards ratio corresponds to the target `bluna_total_bond_amount / stluna_total_bond_amount` ratio, either the required amount of Luna is swapped to UST, or the required amount of UST is swapped to Luna.
+
+After the rewards are swapped to target denominations, the `DispatchRewards` message is processed, where the Lido operating costs fee is applied to both stLuna and bLuna rewards.
+
+## Conversions
