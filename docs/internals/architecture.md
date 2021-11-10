@@ -22,3 +22,5 @@ Hub's staking rewards are claimed in various native token denominations \(TerraU
 After the rewards are swapped to target denominations, the `DispatchRewards` message is processed, where the Lido operating costs fee is applied to both stLuna and bLuna rewards.
 
 ## Conversions
+
+At any moment, a user can convert their bLuna to stLuna and vice versa by sending a `Send` message to either contract and specifying the Hub contract as the recipient. The Hub contract will then calculate and mint the required amount of the corresponding token using the current exchange rates.
