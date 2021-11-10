@@ -21,4 +21,4 @@ The main difference between the two tokens is how they manage the staking reward
 
 ## Conversion
 
-The stLuna and bLuna tokens can be easily [converted](/contracts/hub.md) into each other with a single transaction.
+The stLuna and bLuna tokens can be easily [converted](/contracts/hub.md) into each other with a single transaction. Please note that [peg fees](/fees.md) are also applied to conversions.
