@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
   title: 'Lido Terra docs',
   tagline: 'Documentation for the Lido Terra staking protocol',
   url: 'https://lidofinance.github.io',
-  baseUrl: '/',
+  baseUrl: '/terra-docs/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
