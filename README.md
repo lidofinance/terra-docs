@@ -1,6 +1,6 @@
 # Lido Terra docs
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+Lido Terra documentation is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
 
 ### Installation
 
