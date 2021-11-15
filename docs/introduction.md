@@ -4,7 +4,7 @@ slug: /
 
 # Liquid Staking for Terra
 
-The Lido Terra Liquid Staking Protocol allows its users to earn staking rewards for their staked Luna without locking Ether or maintaining staking infrastructure.
+The Lido Terra Liquid Staking Protocol allows its users to earn staking rewards for their staked Luna without locking Luna or maintaining staking infrastructure.
 
 Users can deposit Luna to the Lido smart contracts and receive stLuna or bLuna tokens in return (see below for the difference between the two tokens). The smart contract then stakes tokens with the DAO-picked node operators. 
 
