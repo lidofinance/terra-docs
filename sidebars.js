@@ -1,9 +1,13 @@
 module.exports = {
   docs: [
     'introduction',
+    'fees',
+    'slashing',
+    'security',
+    'deployed-contracts',
     {
       type: 'category',
-      label: 'Contracts',
+      label: 'API',
       items: [
         'contracts/hub',
         'contracts/reward',
@@ -13,17 +17,15 @@ module.exports = {
         'contracts/stLuna_and_bLuna'
       ],
     },
-    'fees',
     {
       type: 'category',
       label: 'Internals',
       items: [
-        'internals/exchange-rate',
+        'internals/architecture',
+        'internals/exchange-rates',
         'internals/withdrawals',
         'internals/rewards',
       ],
     },
-    'security',
-    'deployed-contracts',
   ],
 };
