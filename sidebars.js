@@ -7,7 +7,7 @@ module.exports = {
     'deployed-contracts',
     {
       type: 'category',
-      label: 'API',
+      label: 'Contracts',
       items: [
         'contracts/hub',
         'contracts/reward',

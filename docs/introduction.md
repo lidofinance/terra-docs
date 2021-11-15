@@ -16,7 +16,7 @@ Both stLuna and bLuna tokens are liquid, tokenized representations of staked (bo
 
 The main difference between the two tokens is how they manage the staking rewards:
 
-* stLuna's rewards are _compounded_: they are sold to Luna and immediately re-staked, thus increasing stLuna's exchange rate and growing stLuna holders' exposure to Luna. This makes stLuna a convenient token to use in liquidity pools and various DeFi protocols;
+* stLuna's rewards are _compounded_: they are sold to Luna and immediately re-staked, thus increasing the underlying amount of staked Luna and growing stLuna holders' exposure to Luna. This makes stLuna a convenient token to use in liquidity pools and various DeFi protocols;
 * bLuna's rewards are sold to UST and sent to a separate [bLuna rewards contract](/contracts/reward.md) that users can claim their rewards from. The bLuna token is perfectly compatible with the Anchor protocol.
 
 ## Conversion
