@@ -10,6 +10,7 @@ module.exports = {
         'introduction/slashing',
         'introduction/security',
         'introduction/deployed-contracts',
+        'introduction/roadmap'
       ],
     },
     {
