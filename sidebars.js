@@ -1,10 +1,17 @@
 module.exports = {
   docs: [
-    'introduction',
-    'fees',
-    'slashing',
-    'security',
-    'deployed-contracts',
+    {
+      type: 'category',
+      label: 'Introduction',
+      items: [
+        'introduction/overview',
+        'introduction/tokens',
+        'introduction/fees',
+        'introduction/slashing',
+        'introduction/security',
+        'introduction/deployed-contracts',
+      ],
+    },
     {
       type: 'category',
       label: 'Contracts',
