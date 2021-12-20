@@ -8,6 +8,7 @@ module.exports = {
         'introduction/tokens',
         'introduction/fees',
         'introduction/slashing',
+        'introduction/stake-distribution',
         'introduction/security',
         'introduction/deployed-contracts',
         'introduction/roadmap'
