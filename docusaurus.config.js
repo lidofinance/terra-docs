@@ -9,7 +9,7 @@ const katex = require('rehype-katex');
 (module.exports = {
   title: 'Lido Terra docs',
   tagline: 'Documentation for the Lido Terra staking protocol',
-  url: 'https://docs.terra.lido.fi/',
+  url: 'https://docs.terra.lido.fi',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
