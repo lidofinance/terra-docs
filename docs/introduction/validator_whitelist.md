@@ -22,4 +22,4 @@ The whitelist includes the below validators:
 | Forbole | terravaloper1jkqr2vfg4krfd4zwmsf7elfj07cjuzss30ux8g |
 | Figment | terravaloper15cupwhpnxhgylxa8n4ufyvux05xu864jcv0tsw |
 
-You can take a look at validators being delegated by Hub contract [with Finder](https://finder.terra.money/columbus-4/address/terra1mtwph2juhj0rvjz7dy92gvl6xvukaxu8rfv8ts) (Delegations section). 
+You can take a look at validators being delegated by Hub contract [with Finder](https://finder.terra.money/mainnet/address/terra1mtwph2juhj0rvjz7dy92gvl6xvukaxu8rfv8ts) (Delegations section). 
