@@ -12,6 +12,7 @@ module.exports = {
         'introduction/security',
         'introduction/deployed-contracts',
         'introduction/roadmap'
+        'introduction/validator_whitelist'
       ],
     },
     {
