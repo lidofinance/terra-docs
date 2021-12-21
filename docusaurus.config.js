@@ -10,7 +10,7 @@ const katex = require('rehype-katex');
   title: 'Lido Terra docs',
   tagline: 'Documentation for the Lido Terra staking protocol',
   url: 'https://lidofinance.github.io',
-  baseUrl: '/terra-docs/',
+  baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
