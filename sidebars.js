@@ -11,7 +11,7 @@ module.exports = {
         'introduction/stake-distribution',
         'introduction/security',
         'introduction/deployed-contracts',
-        'introduction/roadmap'
+        'introduction/roadmap',
         'introduction/validator_whitelist'
       ],
     },
