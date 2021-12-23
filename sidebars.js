@@ -37,5 +37,12 @@ module.exports = {
         'internals/rewards',
       ],
     },
+    {
+      type: 'category',
+      label: 'Web App',
+      items: [
+        'webapp/terra_station',
+      ],
+    },
   ],
 };
