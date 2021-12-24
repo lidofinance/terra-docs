@@ -1,4 +1,4 @@
-# Addind stLuna token to Terra Station
+# Adding stLuna token to Terra Station
 
 stLuna token is pretty new, so it could not be shown in your Terra Station. To fix it, follow the next steps:
 
