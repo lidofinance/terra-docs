@@ -1,8 +1,8 @@
-# Addind stLuna token to Terra Station
+# Adding stLuna token to Terra Station
 
 To see your stLuna balance in Terra Wallet you need to add the stLuna CW20 token. Follow the next steps:
 
-1. Open your Terra station wallet and click "Add token button":
+1. Open your Terra Station wallet and click "Add token" button:
 
 ![Adding new token](/img/wallet_1.png)
 
