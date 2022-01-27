@@ -30,3 +30,14 @@ The core smart contracts are deployed on the [Terra blockchain](https://terra.mo
 | Airdrop Registry | [terra1334h20c9ewxguw9p9vdxzmr8994qj4qu77ux6q](https://finder.terra.money/bombay-12/address/terra1334h20c9ewxguw9p9vdxzmr8994qj4qu77ux6q) |
 | Bonded LUNA \(bLUNA\) | [terra1u0t35drzyy0mujj8rkdyzhe264uls4ug3wdp3x](https://finder.terra.money/bombay-12/address/terra1u0t35drzyy0mujj8rkdyzhe264uls4ug3wdp3x) |
 | Staked LUNA \(stLUNA\) | [terra1e42d7l5z5u53n7g990ry24tltdphs9vugap8cd](https://finder.terra.money/bombay-12/address/terra1e42d7l5z5u53n7g990ry24tltdphs9vugap8cd) |
+
+# Other Contracts
+
+## Mainnet
+
+| Contract | Address |
+| :--- | :--- |
+| whLDO | [terra1jxypgnfa07j6w92wazzyskhreq2ey2a5crgt6z](https://finder.terra.money/mainnet/address/terra1jxypgnfa07j6w92wazzyskhreq2ey2a5crgt6z) |
+| stLuna-Luna staking rewards | [terra1r2ucpn7j8qcgvsvkzxr3x0698megrn2kn9nfwq](https://finder.terra.money/mainnet/address/terra1r2ucpn7j8qcgvsvkzxr3x0698megrn2kn9nfwq) |
+| stSOL-UST staking rewards | [terra188xjhn8h39ert7ezs0m2dlgsqd4vf6k6hmv4jw](https://finder.terra.money/mainnet/address/terra188xjhn8h39ert7ezs0m2dlgsqd4vf6k6hmv4jw) |
+| stETH-UST staking rewards | [terra1za0ltkcxjpvfw8wnwhetj5mr5r05pl6dgy936g](https://finder.terra.money/mainnet/address/terra1za0ltkcxjpvfw8wnwhetj5mr5r05pl6dgy936g) |
