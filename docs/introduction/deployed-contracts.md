@@ -41,3 +41,4 @@ The core smart contracts are deployed on the [Terra blockchain](https://terra.mo
 | stLuna-Luna staking rewards | [terra1r2ucpn7j8qcgvsvkzxr3x0698megrn2kn9nfwq](https://finder.terra.money/mainnet/address/terra1r2ucpn7j8qcgvsvkzxr3x0698megrn2kn9nfwq) |
 | stSOL-UST staking rewards | [terra188xjhn8h39ert7ezs0m2dlgsqd4vf6k6hmv4jw](https://finder.terra.money/mainnet/address/terra188xjhn8h39ert7ezs0m2dlgsqd4vf6k6hmv4jw) |
 | stETH-UST staking rewards | [terra1za0ltkcxjpvfw8wnwhetj5mr5r05pl6dgy936g](https://finder.terra.money/mainnet/address/terra1za0ltkcxjpvfw8wnwhetj5mr5r05pl6dgy936g) |
+| stLuna-weLDO staking rewards | [terra10t8rn7swtkmkfm56mmxwmk2v9xrv78fljsd3ez](https://finder.terra.money/mainnet/address/terra10t8rn7swtkmkfm56mmxwmk2v9xrv78fljsd3ez) |
