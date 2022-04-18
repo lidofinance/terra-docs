@@ -59,18 +59,16 @@ is still a nice use-case, and you can see how the Cosmos SDK wants to add
 payment allowances to native tokens. This is mainly designed to provide
 access to other public-key-based accounts.
 
-There was an issue with race conditions in the original ERC20 approval spec.
-If you had an approval of 50 and I then want to reduce it to 20, I submit a
-Tx to set the allowance to 20. If you see that and immediately submit a tx
-using the entire 50, you then get access to the other 20. Not only did you quickly
-spend the 50 before I could reduce it, you get another 20 for free.
+In the original ERC20 approval specifications, there was an issue with race conditions.
+If an approval of 50 had previously been set and the user now wished to reduce it to 20, 
+an approval transaction was required. While the transaction was being processed, 
+a malicious actor could immediately submit another transaction to drain the initial approval 
+AND the subsequent one for a total of 70.
 
-The solution discussed in the Ethereum community was an `IncreaseAllowance`
-and `DecreaseAllowance` operator (instead of `Approve`). To originally set
-an approval, use `IncreaseAllowance`, which works fine with no previous allowance.
-`DecreaseAllowance` is meant to be robust, that is if you decrease by more than
-the current allowance (eg. the user spent some in the middle), it will just round
-down to 0 and not make any underflow error.
+The solution discussed in the Ethereum community was to use an IncreaseAllowance 
+and a DecreaseAllowance operator (instead of Approve). IncreaseAllowance can be used to set the initial allowance. 
+DecreaseAllowance is meant to be robust: if the allowance is decreased by more than the current value 
+(eg. the user spent some in the meantime), it will just round down to 0 and not make any underflow error.
 
 ### Messages
 
@@ -96,7 +94,7 @@ not just transfer the tokens, but to send them to another contract
 to trigger a given action. **Note** `SendFrom` will set the `Receive{sender}`
 to be the `env.sender` (the account that triggered the transfer)
 rather than the `owner` account (the account the money is coming from).
-This is an open question whether we should switch this?
+Whether we should change this is an open question.
 
 `BurnFrom{owner, amount}` - This works like `TransferFrom`, but burns
 the tokens instead of transfering them. This will reduce the owner's
