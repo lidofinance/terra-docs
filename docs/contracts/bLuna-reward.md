@@ -1,8 +1,8 @@
-# Reward
+# bLuna Reward
 
-The Reward contract contains logic for distributing Luna delegation rewards to holders of bLuna. After the Hub contract withdraws Luna delegation rewards to the Reward contract, the Hub contract can request all rewards to be swapped to TerraUSD, which is then distributed to bLuna holders. Holders of bLuna can then send a request to this contract to claim their accrued rewards.
+The bLuna Reward contract contains logic for distributing Luna delegation rewards to holders of bLuna. After the Hub contract withdraws Luna delegation rewards to the bLuna Reward contract, the Hub contract can request all rewards to be swapped to TerraUSD, which is then distributed to bLuna holders. Holders of bLuna can then send a request to this contract to claim their accrued rewards.
 
-The Reward contract also stores the balance and reward index values for all bLuna holders, which is used to calculate the number of bLuna rewards that a specific holder has accrued.
+The bLuna Reward contract also stores the balance and reward index values for all bLuna holders, which is used to calculate the number of bLuna rewards that a specific holder has accrued.
 
 ## Config
 
