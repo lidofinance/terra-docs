@@ -328,7 +328,7 @@ pub enum ExecuteMsg {
 | `claim_msg` | Binary | Base64-encoded string of JSON of airdrop contract's claim message \(claims airdrop\) |
 | `swap_msg` | Binary | Base64-encoded string of JSON of swap contract's swap message \(swaps airdrop token to Terra USD\) |
 
-### `[Interal] SwapHook`
+### `[Internal] SwapHook`
 
 Swaps claimed airdrop tokens to the reward denomination. Can only be issued by itself \(Hub\).
 

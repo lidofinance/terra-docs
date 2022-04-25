@@ -15,7 +15,8 @@ Unlike staked Luna, the stLuna and bLuna tokens are free from the limitations as
 * Homepage: https://lido.fi/terra
 * Blog: https://blog.lido.fi
 * Discord: https://discord.com/invite/vgdPfhZ
-* Twitter: https://twitter.com/lidofinance
+* General Twitter: https://twitter.com/lidofinance
+* Terra-focused Twitter: https://twitter.com/LidoOnTerra
 * Telegram: https://t.me/lidofinance
 * Reddit: https://www.reddit.com/r/LidoFinance
 
